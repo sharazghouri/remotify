@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+
+/* Test class to verify Tailwind is working */
+
+@layer base {
+    :root {
+        --font-sans: 'Hanken Grotesk', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+}
+
+@layer utilities {
+    .text-2xs {
+        font-size: 0.625rem; /* 10px */
+    }
+}
+
+.bg-black {
+    background-color: #060606;
+}
