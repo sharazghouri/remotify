@@ -1,15 +1,18 @@
+@props(['job', 'width' => '90'])
+
 <x-panel class="flex gap-x-6">
   <div>
-    <img src="https://picsum.photos/seed/{{ rand(0,10000)}}/100/100"  class="rounded-xl"/>
-  </div>
+    <img src="{{ asset('storage/' . $job->employer->logo) }}" class="rounded-xl" width="{{$width}}"/>
+  </div>  
   <div class="flex-1  flex flex-col">
-    <a href="#" class="self-start text-sm text-gray-400">Laracasts</a>
-    <h3 class="font-bold text-xl mt-3 group-hover:text-blue-300  ransition-colors duration-1000">Video Producer</h3>
-    <p class=" text-sm text-gray-400 mt-auto">Full Time - form $60,000</p>
+    <a href="#" class="self-start text-sm text-gray-400">{{ $job->employer->name }}</a>
+    <h3 class="font-bold text-xl mt-3 group-hover:text-blue-300  ransition-colors duration-1000">{{ $job->title }}</h3>
+    <p class=" text-sm text-gray-400 mt-auto">{{ $job->schedule}} - form {{ $job->salary}}</p>
   </div>
   <div class="mt-6 space-y-3">
-    <x-tag>Tag</x-tag>
-    <x-tag>Tag</x-tag>
-    <x-tag>Tag</x-tag>
+
+    @foreach( $job->tags as $tag )
+        <x-tag  :$tag />
+    @endforeach 
   </div>
 </x-panel>
